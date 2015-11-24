@@ -30,6 +30,8 @@ void draw(){
 
     if(points.size()>100) {
       //TODO: 減衰をどう実装するか
+      Point p = points.get(0);
+      println(p.getSpeed());
       points.remove(0);
     }
   }
@@ -47,5 +49,8 @@ class Point{
     strokeWeight((100-speed)/2);
 
     line(pmouseX, pmouseY, mouseX, mouseY);
+  }
+  float getSpeed(){
+    return speed;
   }
 }
