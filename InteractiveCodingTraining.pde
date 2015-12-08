@@ -2,6 +2,7 @@
 ArrayList<Grid> gridz;
 int wi = 20;
 int he = 20;
+int count = 0;
 
 void setup(){
   size(1280, 640);
@@ -11,6 +12,9 @@ void setup(){
   //colorMode(HSB, 100);
 
   //points = new ArrayList<Point>();
+  //
+
+  //Gridを画面上に配置する
   gridz = new ArrayList<Grid>();
 
   for(int w=0;w<width/wi;w++){
@@ -20,9 +24,8 @@ void setup(){
   }
 }
 
-
 void draw(){
-
+  //マウスの距離
   float dx = mouseX - pmouseX;
   float dy = mouseY - pmouseY;
   float speed = sqrt(dx * dx + dy * dy);
@@ -32,15 +35,15 @@ void draw(){
 
   //Draw Grid
   for(int i=0;i<gridz.size();i++){
-      Grid g = gridz.get(i);
+      gridz.get(i).countTimer();
+      gridz.get(i).fade();
+
       //g.drawGray();
-      g.drawLineUpdate();
-      g.drawLine();
+      //g.drawLine();
+      if (mousePressed && (mouseButton == LEFT)) {
+        gridz.get(i).drawPixel();
+      }
   }
-
-  if (mousePressed && (mouseButton == LEFT)) {
-  }
-
 
   ////マウスに移動があったらpointを生成
   //if(speed != 0){
