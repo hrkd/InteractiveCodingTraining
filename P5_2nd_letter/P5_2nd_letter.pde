@@ -1,6 +1,6 @@
 import controlP5.*;
-
 ControlP5 cp5;
+
 Grid grid;
 Particles particles;
 Util util;
@@ -26,13 +26,12 @@ void setup(){
     .setColorCaptionLabel(color(20,20,20));
 
   font = createFont("Helvetica-Bold", 300);
-
   fill(1);
   textFont(font);
   textAlign(CENTER, CENTER);
   text("Hello", width/2, height/2);
 
-  //10x10のグリッドを文字上に作成
+  //5x5のグリッドを文字上に作成
   grid = new Grid(5);
 
   //グリッドの数でパーティクル作成
