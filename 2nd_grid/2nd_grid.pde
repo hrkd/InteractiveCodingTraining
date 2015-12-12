@@ -1,21 +1,12 @@
-class Grid{
-  public static final String CLASS_NAME = "Grid";
-
-  int _x;
-  int _y;
-  int _w;
-  int _h;
+class GridSecond extends Grid {
+  public static final String CLASS_NAME = "GridSecond";
   boolean updown;
   int count = 0;
   int frame;
   boolean timerStart = false;
 
-  Grid(int x,int y,int w,int h){
-    _x = x;
-    _y = y;
-    _w = w;
-    _h = h;
-
+  GridSecond(int x,int y,int w,int h){
+    super(x,y,w,h);
     //drawLineInit();
     setTimer(1);
   }
@@ -71,36 +62,6 @@ class Grid{
     return distX < limit && distY < limit;
   }
 
-  int getIndex(int wid,int _x,int _y,int _w,int _h){
-    return (wid/_w)*(_y/_h) + (_x/_w);
-  }
-
-  boolean isTouch(){
-    if((_x < mouseX && mouseX <= _x+_w) && (_y < mouseY && mouseY <= _y+_h)){
-      println(getIndex(1280,_x,_y,_w,_h));
-
-      return true;
-    }else{
-      return false;
-    }
-  }
-
-  //減衰させる
-  void fade(){
-    fill(0,5);
-    rect(_x,_y,_w,_h);
-  }
-
-  //ポインタの位置なら描画する
-  void drawPixel(){
-    if(isTouch()){
-      noStroke();
-      fill(100,100);
-      rect(_x,_y,_w,_h);
-      timerStart = true;
-    }
-  }
-
   void wait(int frame){
     int count = 0;
     while(count < frame){
@@ -118,8 +79,6 @@ class Grid{
 
     rect(_x-_w*2,_y,_w,_h);
   }
-
-
 
   //ライン
   void drawLine(){
@@ -142,6 +101,8 @@ class Grid{
       }
     }
   }
+
+
 
   void drawLineUpdate(){
     if(mouseX > pmouseX && pmouseY > mouseY ){
