@@ -18,8 +18,8 @@ void draw(){
   }
 
   util.fade(20);
-  //particles.draw();
-  grid.draw();
+  particles.draw();
+  //grid.draw();
 }
 
 void keyPressed() {
