@@ -1,7 +1,6 @@
 PFont font;
 Grid grid;
-
-int count = 0;
+String[] charlist;
 
 void setup(){
   size(1280, 640);
@@ -9,7 +8,26 @@ void setup(){
   surface.setResizable(true);
 
   grid = new Grid(80);
+
+  String chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-^\\@[];:,./_!\"#$%&'()=~|`{}+*<>?_";
+  charlist = chars.split("");
+
   font = createFont("Century", 32);
+  fill(255);
+  textFont(font,40);
+
+  for(int i=0; i < grid.panes.size();i=i+1){
+    float rand_angle = random(100);
+    float rand_size = random(100);
+    int index = round(random(0,charlist.length-1));
+    pushMatrix();
+    translate(grid.getXByIndex(i) +40,grid.getYByIndex(i) +40);
+    for(int j=0; j < 10;j=j+1){
+      rotate(radians(100+rand_angle));
+      text(charlist[index], 0, 0);
+    }
+    popMatrix();
+  }
 }
 
 void draw(){
@@ -28,19 +46,7 @@ void keyPressed() {
     case ESC:
       break;
     default:
-      translate(grid.getXByIndex(count) +40,grid.getYByIndex(count) +40);
 
-      float rand_angle = random(100);
-      float rand_size = random(100);
-
-      fill(255);
-
-      for(int i=0; i < 0;i=i+1){
-        rotate(radians(100+rand_angle));
-        textFont(font,40);
-        text(key, 0, 0);
-      }
-      count = count+1;
     }
   }
 }
