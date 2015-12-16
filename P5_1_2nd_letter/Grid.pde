@@ -2,13 +2,13 @@ class Grid{
   public ArrayList<Pane> panes;
   private int pSize;
 
-  Grid(int paneSize){
+  Grid(int paneSize,PGraphics pg){
     pSize = paneSize;
     panes = new ArrayList<Pane>();
     for(int h=0;h<height/paneSize;h++){
       for(int w=0;w<width/paneSize;w++){
         Pane pane = new Pane(w*paneSize, h*paneSize, paneSize);
-        if(pane.isFilled()){
+        if(pane.isFilled(pg)){
           panes.add(pane);
         }
       }

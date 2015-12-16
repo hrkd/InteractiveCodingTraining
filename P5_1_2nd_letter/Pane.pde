@@ -9,9 +9,9 @@ class Pane extends PaneBase{
     //super.draw();
   }
 
-  public boolean isFilled(){
+  public boolean isFilled(PGraphics pg){
     color org = color(0);
-    color c = get(_x, _y);
+    color c = pg.get(_x, _y);
     return org != c;
   }
 }

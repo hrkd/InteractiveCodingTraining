@@ -8,6 +8,18 @@ class Particles{
     }
   }
 
+  public void addParticleByNumber(int val){
+
+    for(int i=0;i<abs(val);i++){
+      if(val > 0){
+        par.add(new Particle());
+      }else{
+        par.remove(par.size()-1);
+      }
+    }
+  }
+
+
   public void draw(){
     for(int i=0;i<par.size();i++){
       //par.get(i).refresh();

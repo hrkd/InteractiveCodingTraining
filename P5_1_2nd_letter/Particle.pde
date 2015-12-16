@@ -10,11 +10,11 @@ class Particle{
   private float randomRenge;
 
   Particle(){
-    _x = 0;
-    _y = 0;
+    _x = random(0,width);
+    _y = random(0,height);
     GoalX = width/2;
     GoalY = height/2;
-    speed = random(1,100);
+    speed = random(1,5);
     randomRenge = random(1,15);
   }
 
