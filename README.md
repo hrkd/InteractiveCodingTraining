@@ -1,6 +1,6 @@
 # InteractiveCodingTraining
 
-## 2st letter
+## 2nd letter
 15/12/2015
 ![](https://raw.githubusercontent.com/hrkd/InteractiveCodingTraining/master/P5_1_2nd_letter/screen_shot.png)
 
